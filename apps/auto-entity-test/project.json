@@ -1,0 +1,92 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/auto-entity-test/src",
+  "prefix": "auto-entity-test",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/auto-entity-test",
+        "index": "apps/auto-entity-test/src/index.html",
+        "main": "apps/auto-entity-test/src/main.ts",
+        "polyfills": "apps/auto-entity-test/src/polyfills.ts",
+        "tsConfig": "apps/auto-entity-test/tsconfig.app.json",
+        "assets": [
+          "apps/auto-entity-test/src/favicon.ico",
+          "apps/auto-entity-test/src/assets"
+        ],
+        "styles": ["apps/auto-entity-test/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/auto-entity-test/src/environments/environment.ts",
+              "with": "apps/auto-entity-test/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "auto-entity-test:build:production"
+        },
+        "development": {
+          "browserTarget": "auto-entity-test:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "auto-entity-test:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/auto-entity-test/**/*.ts",
+          "apps/auto-entity-test/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/auto-entity-test"],
+      "options": {
+        "jestConfig": "apps/auto-entity-test/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
