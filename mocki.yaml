@@ -1,0 +1,27 @@
+name: mocki
+port: 3000
+endpoints:
+  - path: /TestEntity
+    method: get
+    responses:
+      - statusCode: 200
+        body:
+          - id: 1
+            dummyProperty: Hello
+          - id: 2
+            dummyProperty: World
+  - path: /TestEntity/1
+    method: get
+    responses:
+      - statusCode: 200
+        body:
+          - id: 1
+            dummyProperty: Hello
+  - path: /TestEntity/2
+    method: get
+    responses:
+      - statusCode: 200
+        body:
+          - id: 2
+            dummyProperty: World
+

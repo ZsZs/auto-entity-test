@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TestEntityFacade } from './auto-entity/test-entity-facade';
 import { Observable } from 'rxjs';
 import { TestEntity } from './auto-entity/test-entity';
 
 @Component({
-  selector: 'auto-entity-test-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'test-auto-entity',
+  template: `
+    <ul>
+      <li *ngFor="let entity of entities$ | async">{{entity.id}}: {{entity.dummyProperty}}</li>
+    </ul>
+ `,
+  styles: [],
+  encapsulation: ViewEncapsulation.Emulated,
 })
-export class AppComponent implements OnInit {
+export class SharedAutoEntityComponent implements OnInit {
   entities$: Observable<TestEntity[]> | undefined;
-  title = 'auto-entity-test';
 
   constructor( private facade: TestEntityFacade ) {}
 

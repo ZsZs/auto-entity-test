@@ -1,1 +1,13 @@
-<auto-entity-test-nx-welcome></auto-entity-test-nx-welcome>
+<h1>
+  <span> Hello there, </span>
+  Welcome auto-entity-test 👋
+</h1>
+<h3>Test entities from App module</h3>
+<ul>
+  <li *ngFor="let entity of entities$ | async">{{entity.id}}</li>
+</ul>
+
+<div>
+  <button routerLink='/testEntities'>Show test entities from feature module</button>
+</div>
+<router-outlet></router-outlet>

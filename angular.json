@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "auto-entity-test": "apps/auto-entity-test",
-    "auto-entity-test-e2e": "apps/auto-entity-test-e2e"
+    "auto-entity-test-e2e": "apps/auto-entity-test-e2e",
+    "shared-auto-entity": "libs/shared/auto-entity"
   }
 }
