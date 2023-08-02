@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
-  "version": 1,
+  "version": 2,
   "projects": {
     "auto-entity-test": "apps/auto-entity-test",
     "auto-entity-test-e2e": "apps/auto-entity-test-e2e",
