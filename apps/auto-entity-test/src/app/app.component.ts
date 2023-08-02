@@ -9,7 +9,7 @@ import { TestEntity } from './auto-entity/test-entity';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  entities$: Observable<TestEntity[]> | undefined;
+  entities$!: Observable<TestEntity[]>;
   title = 'auto-entity-test';
 
   constructor( private facade: TestEntityFacade ) {}

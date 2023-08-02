@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { TestEntity } from './auto-entity/test-entity';
@@ -8,6 +8,7 @@ import { NgrxAutoEntityModule } from '@briebug/ngrx-auto-entity';
 import { FEATURE_NAME, testFeatureReducer } from './auto-entity/test-entity-state';
 import { SharedAutoEntityComponent } from './shared-auto-entity.component';
 import { RouterModule, Routes } from '@angular/router';
+import { TestEntityFacade } from './auto-entity/test-entity-facade';
 
 const routes: Routes = [
   { path: '', component: SharedAutoEntityComponent }
@@ -24,4 +25,12 @@ const routes: Routes = [
   providers: [{ provide: TestEntity, useClass: TestEntityService }],
   declarations: [SharedAutoEntityComponent],
 })
-export class SharedAutoEntityModule {}
+
+export class SharedAutoEntityModule {
+  static forFeature(): ModuleWithProviders<SharedAutoEntityModule> {
+    return {
+      ngModule:  SharedAutoEntityModule,
+      providers: [TestEntityFacade]
+    }
+  }
+}
