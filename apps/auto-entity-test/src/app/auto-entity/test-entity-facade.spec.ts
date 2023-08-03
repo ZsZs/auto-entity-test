@@ -30,11 +30,11 @@ describe( 'TestEntityFacade', () => {
   })
 
   it( 'loadAll() retrieves all entities.', done => {
-    facade.loadAll();
     facade.all$.subscribe( entities => {
       expect(entities.length).toEqual( 2 );
       expect(entities[0].id).toEqual(1);
       done();
     })
+    expect( facade.loadAll() ).toBeTruthy();
   })
 })
